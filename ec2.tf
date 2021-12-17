@@ -16,3 +16,17 @@ resource "aws_instance" "web-2" {
   }
 }
 
+resource "aws_ebs_volume" "ebs" {
+  availability_zone = "eu-west-2a"
+  size              = 2
+
+  tags = {
+    Name = "tomcat-ebs"
+  }
+}
+
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.ebs.id
+  instance_id = aws_instance.web-2.id
+}

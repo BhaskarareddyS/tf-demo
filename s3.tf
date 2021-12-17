@@ -8,12 +8,8 @@ resource "aws_s3_bucket" "b" {
 }
 
 
-resource "aws_s3_bucket" "bas" {
-  bucket = "my-tf-bas-bucketi222"
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
-}
+
+
+
 
